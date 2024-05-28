@@ -1,9 +1,9 @@
-<?php include ("../../template/header.php") ?>
-<?php include_once ("../../controller/Controller_cliente.php") ?>
-<?php include_once ("../../models/Cliente.php") ?>
+<?php include ("../../../template/header.php") ?>
+<?php include_once ("../../controller/Controller_instituto.php") ?>
+<?php include_once ("../../models/Instituto.php") ?>
 
 <?php
-    $controller_cliente = new Controller_cliente();
+    
 
     if(isset($_GET["cod_cliente"]))
     {
@@ -62,4 +62,4 @@
         </tbody>
     </table>
 </div>
-<?php include ("../../template/footer.php") ?>
+<?php include ("../../../template/footer.php") ?>

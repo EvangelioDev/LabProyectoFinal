@@ -9,15 +9,7 @@
     $all_categoria = $control->loadData();
 
 ?>
-<script>
-    const links_menu = document.querySelectorAll(".links_menu");
-    const usuario =document.querySelector(".usuario");
 
-    links_menu.forEach(links => {
-        links.classList.remove("selected");
-    })
-    usuario.classList.add("selected");
-</script>
 
 <div class="box-form">
 <div class="form-container">

@@ -1,9 +1,9 @@
-<?php include_once ("../../template/header.php") ?>
-<?php include_once ("../../controller/Controller_user.php") ?>
-<?php include_once ("../../models/Usuario.php") ?>
+<?php include_once ("../../../template/header.php") ?>
+<?php include_once ("../../../controller/Controller_formacion.php") ?>
+<?php include_once ("../../../models/Formacion.php") ?>
 
 <?php
-    $controller_user = new Controller_user();
+    $control = new Controller_formacion();
 
     if(isset($_GET["cod_user"]))
     {
@@ -59,4 +59,4 @@
         </tbody>
     </table>
 </div>
-<?php include ("../../template/footer.php") ?>
+<?php include ("../../../template/footer.php") ?>

@@ -1,67 +1,40 @@
-<?php include_once ("../../template/header.php") ?>
-<?php include_once("../../controller/Controller_user.php") ?>
-<?php include_once("../../models/Usuario.php") ?>
+<?php include_once ("../../../template/header.php") ?>
+<?php include_once("../../../controller/Controller_categoria.php") ?>
+<?php include_once("../../../models/Categoria.php") ?>
 
 <?php 
 
-    $controller_user = new Controller_user();
+    $control = new Controller_categoria();
 
     if(isset($_GET["cod"]))
     {
-        $user = new Usuario();
+        $categoria = new Categoria();
         $id = $_GET["cod"];
-        $user->parseArray($controller_user->loadUser($id));
+        $categoria->parseArray($control->loadCategoria($id));
     }
 
-    if(isset($_POST["cod_user"])){
-        $user_ud = $_POST;
-        $controller_user->update($user_ud);
-        header("Location: ./index.php");
+    if(isset($_POST["id_categoria"])){
+        $categoria_list = $_POST;
+        $control->update($categoria_list);
     }
 ?>
-<script>
-    const links_menu = document.querySelectorAll(".links_menu");
-    const usuario =document.querySelector(".usuario");
 
-    links_menu.forEach(links => {
-        links.classList.remove("selected");
-    })
-    usuario.classList.add("selected");
-</script>
 
 <div class="box-form">
-<div class="form-container">
+    <div class="form-container">
         <form action="" method="post">
-            <h2>EDITAR USUARIO</h2>
+            <input type="hidden" name="id_categoria" value="<?= $categoria->id ?>">
+            <h2>REGISTRAR NUEVA CATEGORIA</h2>
             
-            <div class="form-group">
-                <div class="form-item">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required value="<?= $user->nombre ?>">
-                </div>
-                <div class="form-item">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" id="apellido" name="apellido" required value="<?= $user->apellido ?>">
-                </div>
-            </div>
-            <input type="hidden" name="cod_user" value = <?=$id?> >
-            
-            <label for="cedula">Cédula:</label>
-            <input type="text" id="cedula" name="cedula" required value="<?= $user->cedula ?>">
-            
-            <label for="cargo">Cargo:</label>
-            <input type="text" id="cargo" name="cargo" required value="<?= $user->cargo ?>">
-            
-            <label for="pass">Contraseña:</label>
-            <input type="password" id="pass" name="pass" required value="<?= $user->pass ?>">
-            
+            <label for="nombre">Categoria:</label>
+            <input type="text" id="nombre" name="nombre" required value="<?=$categoria->nombre?> ">
             <div class="box-btn">
                 <button type="submit">Actualizar</button>
-                <a href="./index.php" class="btn-3">Cancelar</a>
+                <a href="./index.php" class="btn-3">Volver</a>
             </div>
             
         </form>
     </div>
 </div>
 
-<?php include ("../../template/footer.php") ?>
+<?php include ("../../../template/footer.php") ?>

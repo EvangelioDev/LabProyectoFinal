@@ -15,15 +15,7 @@
     $all_inv = $control->loadData();
     $cout_inv = 1;
 ?>
-<script>
-    const links_menu = document.querySelectorAll(".links_menu");
-    const usuario =document.querySelector(".investigador");
 
-    links_menu.forEach(links => {
-        links.classList.remove("selected");
-    })
-    usuario.classList.add("selected");
-</script>
 
 <div class="container_table">
     <h2 class="title_table">LISTA DE INVESTIGADORES</h2>

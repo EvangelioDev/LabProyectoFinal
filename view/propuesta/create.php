@@ -38,16 +38,6 @@ if (isset($_POST["id_cliente"])) {
 
 ?>
 
-<script>
-  const links_menu = document.querySelectorAll(".links_menu");
-  const prestamo = document.querySelector(".prestamo");
-
-  links_menu.forEach(links => {
-    links.classList.remove("selected");
-  })
-
-  prestamo.classList.add("selected");
-</script>
 
 <div class="formulario-prestamo">
   <h2>Información Cliente:</h2>

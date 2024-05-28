@@ -13,44 +13,39 @@ class Controller_categoria extends Conexion{
         return $pago;
     }
     
-    function insert($pago)
+    function insert($categoria)
     {
         /* print_r($pago);exit; */
         $conect = $this->getConnect();
-        $query = $conect->prepare("INSERT INTO pagos(metodo_pago, monto_pago, id_prestamo) VALUES(:metodo_pago, :monto_pago, :id_prestamo);");
+        $query = $conect->prepare("INSERT INTO categorias (nombre) VALUES (:nombre);");
 
-        $query->bindParam(":metodo_pago", $pago["metodo_pago"]);
-        $query->bindParam(":monto_pago", $pago["monto_pago"]);
-        $query->bindParam(":id_prestamo", $pago["cod_prestamo"]);
+        $query->bindParam(":nombre", $categoria);
 
         $query->execute();
     }
-    function update($pago)
+    function update($categoria)
     {
     /*     print_r($pago);    */
         $conect = $this->getConnect();
-        $query = $conect->prepare("UPDATE pagos SET metodo_pago = :metodo_pago, monto_pago = :monto_pago, id_prestamo = :id_prestamo WHERE id_pago = :id_pago");
+        $query = $conect->prepare("UPDATE categorias SET nombre = :nombre  WHERE id_categoria = :id;");
 
-        $query->bindParam(":metodo_pago", $pago["metodo_pago"]);
-        $query->bindParam(":monto_pago", $pago["monto_pago"]);
-        $query->bindParam(":id_prestamo", $pago["cod_prestamo"]);
-        $query->bindParam(":id_pago", $pago["id_pago"]);
+        $query->bindParam(":nombre", $categoria["nombre"]);
+        $query->bindParam(":id", $categoria["id_categoria"]);
 
         $query->execute();
     }
 
     function delete($id){
         $conect = $this->getConnect();
-
-        $query = $conect->prepare("DELETE FROM pagos WHERE id_pago = :id");
+        $query = $conect->prepare("DELETE FROM categorias WHERE id_categoria = :id");
         $query->bindParam(":id", $id);
         $query->execute();
     }
 
-    function loadPago($id){
+    function loadCategoria($id){
         $conect = $this->getConnect();
 
-        $query = $conect->prepare("SELECT * FROM pagos WHERE id_pago = :id");
+        $query = $conect->prepare("SELECT * FROM categorias WHERE id_categoria = :id");
         $query->bindParam(":id", $id);
 
         $query->execute();

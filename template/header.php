@@ -1,11 +1,11 @@
-<?php $home = "https://localhost/propuesta/" ?>
+<?php $home = "https://localhost/propuestas/" ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuesta de Investigacion</title>
+    <title>Sistema de propuesta</title>
 
     <!-- style cotumize -->
     <link rel="stylesheet" href="<?= $home ?>css/estilos.css">
@@ -21,7 +21,7 @@
 
     <!-- fontawesome para los iconos -->
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-    <!-- actividad -->
+    
 </head>
 <body id="body">
     
@@ -35,11 +35,10 @@
 
         <div class="name__page">
             <i class="fa-regular fa-user"></i>
-            <h4>Name investigador</h4>
+            <h4>Default user</h4>
         </div>
 
         <div class="options__menu">	
-
             <ul class="selected">
                 <a href="<?=$home?>">
                     <div class="option">
@@ -49,18 +48,7 @@
                         </div>
                     </div>
                 </a>
-               
-               
             </ul>
-           <!--  <a href="" class="links_menu selected inicio">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fas fa-home" title="Inicio"></i>
-                        <h4>Inicio</h4>
-                    </div>
-                </div>
-            </a> -->
-
             <ul class="selected">
                 <div class="option">
                     <a href="<?=$home?>/view/investigador/">
@@ -72,28 +60,11 @@
                     
                     <ul class="sub-menu hidden">
                         <li><a href="<?=$home?>view/investigador/categoria">Categoria</a></li>
-                        <li><a href="#">Institucion</a></li>
-                        <li><a href="#">Formacion</a></li>
+                        <li><a href="<?=$home?>view/investigador/formacion">Institucion</a></li>
+                        <li><a href="<?=$home?>view/investigador/institucion">Formacion</a></li>
                     </ul>
                 </div>
             </ul>
-
-           <!--  <a href="view/investigador/" class="links_menu investigador">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-file-pen" title="Investigador"></i>
-                        <h4>Investigador</h4>
-                    </div>
-                    
-                    <div class="submenu hidden">
-                        <a href="#">Item I</a>
-                        <a href="#">Item II</a>
-                        <a href="#">Item III</a>
-                        <a href="#">Item IV</a>
-                    </div>
-                </div>
-                
-            </a> -->
             <ul class="selected">
                 <div class="option">
                     <a href="<?=$home?>view/propuesta">
@@ -110,35 +81,17 @@
                     </ul>
                 </div>
             </ul>
+            <ul class="selected">
+                <div class="option">
+                    <a href="<?=$home?>view/organismo">
+                        <div class="icon_title">
+                            <i class="fa-solid fa-building" title="Organismo"></i>
+                            <h4>Organismo</h4>
+                        </div>
+                    </a>
+                </div>
+            </ul>
             
-          <!--   <a href="view/propuesta/" class="links_menu propuesta">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-pen-nib" title="Propuesta"></i>
-                        <h4>Propuesta</h4>
-                    </div>
-                    <div class="submenu hidden">
-                        <h4>Item I</h4>
-                        <h4>Item II</h4>
-                        <h4>Item III</h4>
-                        <h4>Item IV</h4>
-                    </div>
-                </div>
-            </a> -->
-
-           <!--  <ul class="selected">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-scale-unbalanced-flip" title="Fuente Legal"></i>
-                        <h4>Fuente Legal</h4>
-                    </div>
-                    <ul class="sub-menu hidden">
-                        <li><a href="#">Item I</a></li>
-                        <li><a href="#">Item II</a></li>
-                        <li><a href="#">Item III</a></li>
-                    </ul>
-                </div>
-            </ul> -->
             <ul class="selected">
                 <div class="option">
                     <a href="<?=$home?>view/instituto">
@@ -153,66 +106,7 @@
                     </ul>
                 </div>
             </ul>
-
-          <!--   <a href="view/fuente/" class="links_menu fuente-legal">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-scale-unbalanced-flip" title="Fuente Legal"></i>
-                        <h4>Fuente Legal</h4>
-                    </div>
-                    <div class="submenu hidden">
-                        <h4>Item I</h4>
-                        <h4>Item II</h4>
-                        <h4>Item III</h4>
-                        <h4>Item IV</h4>
-                    </div>
-                </div>
-            </a> -->
-
-            <!-- <a href="view/facultad/" class="links_menu facultad">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-landmark" title="Facultad"></i>
-                        <h4>Facultad</h4>
-                    </div>
-                    <div class="submenu hidden">
-                        <h4 href="#mamao">Item I</h4>
-                        <h4>Item II</h4>
-                        <h4>Item III</h4>
-                        <h4>Item IV</h4>
-                    </div>
-                </div>
-            </a> -->
-            <ul class="selected">
-                <div class="option">
-                    <a href="<?=$home?>view/organismo">
-                        <div class="icon_title">
-                            <i class="fa-solid fa-building" title="Organismo"></i>
-                            <h4>Organismo</h4>
-                        </div>
-                    </a>
-            
-                </div>
-            </ul>
-<!-- 
-            <a href="view/organismo/" class="links_menu organismo">
-                <div class="option">
-                    <div class="icon_title">
-                        <i class="fa-solid fa-building" title="Organismo"></i>
-                        <h4>Organismo</h4>
-                    </div>
-                    <div class="submenu hidden">
-                        <h4>Item I</h4>
-                        <h4>Item II</h4>
-                        <h4>Item III</h4>
-                        <h4>Item IV</h4>
-                    </div>
-                     Organismo son las fuente de organizacion  el finaciamente y demas depende de este, incluir submenu para finaciamiento
-
-                </div>
-            </a>-->
         </div>
 
     </div>
-
     <main>

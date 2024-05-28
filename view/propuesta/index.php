@@ -3,14 +3,7 @@
 <?php include_once ("../../models/Prestamo.php") ?>
 
 <?php
-    $controller_prestamo = new Controller_prestamo();
 
-    if(isset($_GET["cod_prestamo"]))
-    {
-        $id = $_GET["cod_prestamo"];
-
-        $controller_prestamo->delete($id);
-    }
     
     $all_prestamo = $controller_prestamo->loadData();
     $cout_prestamo = 1;

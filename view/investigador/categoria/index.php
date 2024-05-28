@@ -1,12 +1,15 @@
-<?php $home = "https://localhost/propuesta/" ?>
-
-<?php include_once ("../../../template/header.php") ?>
+<?php include ("../../../template/header.php") ?>
 <?php include_once ("../../../models/Categoria.php") ?>
 <?php include_once ("../../../controller/Controller_categoria.php") ?>
 
 
 <?php 
     $control = new Controller_categoria();
+
+    if(isset($_GET["id_categoria"])){
+        $id_categoria = $_GET["id_categoria"];
+        $control->delete($id_categoria);
+    }
     $all_categoria = $control->loadData();
     $count_categoria = 1;
 ?>
@@ -31,11 +34,10 @@
                 <td><?= $datacategoria->nombre?></td>
           
                 <td class="acciones-btn">
-                    <a href="./index.php?cod_user=<?= $datacategoria->id?>" class="btn-1">Eliminar</a>
+                    <a href="./index.php?id_categoria=<?= $datacategoria->id?>" class="btn-1">Eliminar</a>
                     <a href="./editar.php?cod=<?= $datacategoria->id ?>" class="btn-2">Editar</a>
                 </td>
             </tr>
-
         <?php $count_categoria++; } ?>
         </tbody>
     </table>

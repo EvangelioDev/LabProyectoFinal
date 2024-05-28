@@ -1,4 +1,4 @@
-<?php $home = "https://localhost/propuesta/" ?>
+<?php $home = "https://localhost/propuestas/" ?>
 </main>
 
 <script src="<?= $home ?>js/script.js"></script>
