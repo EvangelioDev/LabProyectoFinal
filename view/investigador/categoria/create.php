@@ -3,7 +3,12 @@
 
 <?php 
 
-    
+    $controller_user = new Controller_user();
+
+    if(isset($_GET["cedula"])){
+        $controller_user->insert($_GET);
+        header("Location: ./index.php");
+    }
 ?>
 
 <div class="box-form">
