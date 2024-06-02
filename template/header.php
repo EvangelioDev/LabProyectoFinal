@@ -51,7 +51,7 @@
             </ul>
             <ul class="selected">
                 <div class="option">
-                    <a href="<?=$home?>/view/investigador/">
+                    <a href="<?=$home?>view/investigador/">
                         <div class="icon_title">
                             <i class="fa-solid fa-file-pen" title="Investigador"></i>
                             <h4>Investigador</h4>
@@ -60,8 +60,8 @@
                     
                     <ul class="sub-menu hidden">
                         <li><a href="<?=$home?>view/investigador/categoria">Categoria</a></li>
-                        <li><a href="<?=$home?>view/investigador/formacion">Institucion</a></li>
-                        <li><a href="<?=$home?>view/investigador/institucion">Formacion</a></li>
+                        <li><a href="<?=$home?>view/investigador/instituto">Instituto</a></li>
+                        <li><a href="<?=$home?>view/investigador/formacion">Formacion</a></li>
                     </ul>
                 </div>
             </ul>
@@ -94,10 +94,10 @@
             
             <ul class="selected">
                 <div class="option">
-                    <a href="<?=$home?>view/instituto">
+                    <a href="<?=$home?>view/institucion">
                         <div class="icon_title">
                             <i class="fa-solid fa-landmark" title="Facultad"></i>
-                            <h4>Instituto</h4>
+                            <h4>Institucion</h4>
                         </div>
                     </a>
                     

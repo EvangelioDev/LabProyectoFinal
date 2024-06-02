@@ -8,37 +8,37 @@ class Controller_investigador extends Conexion{
 
         $query = $conect->prepare("SELECT * FROM investigadores ");
         $query->execute();
-        $clientes = $query->fetchAll(PDO::FETCH_ASSOC);
+        $investigador = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        return $clientes;
+        return $investigador;
     }
     
-    function insert($cliente)
+    function insert($investigador)
     {
         $conect = $this->getConnect();
-        $query = $conect->prepare("INSERT INTO clientes(nombre, apellido, cedula, direccion, telefono, correo) VALUES(:nombre, :apellido, :cedula, :direccion, :telefono, :correo);");
+        $query = $conect->prepare("INSERT INTO investigadores(nombre, codigo, telefono, email, id_categoria, id_instituto) VALUES(:nombre, :codigo, :telefono, :email, :id_categoria, :id_instituto);");
 
-        $query->bindParam(":nombre", $cliente["nombre"]);
-        $query->bindParam(":apellido", $cliente["apellido"]);
-        $query->bindParam(":cedula", $cliente["cedula"]);
-        $query->bindParam(":direccion", $cliente["direccion"]);
-        $query->bindParam(":telefono", $cliente["telefono"]);
-        $query->bindParam(":correo", $cliente["correo"]);
+        $query->bindParam(":nombre", $investigador["nombre"]);
+        $query->bindParam(":codigo", $investigador["codigo"]);
+        $query->bindParam(":telefono", $investigador["telefono"]);
+        $query->bindParam(":email", $investigador["email"]);
+        $query->bindParam(":id_categoria", $investigador["id_categoria"]);
+        $query->bindParam(":id_instituto", $investigador["id_instituto"]);
 
         $query->execute();
     }
-    function update($cliente)
+    function update($investigador)
     {
-
         $conect = $this->getConnect();
-        $query = $conect->prepare(" UPDATE clientes SET nombre = :nombre, apellido = :apellido, cedula = :cedula, direccion = :direccion, telefono = :telefono, correo = :correo WHERE id_cliente = :id");
-        $query->bindParam(":nombre", $cliente["nombre"]);
-        $query->bindParam(":apellido", $cliente["apellido"]);
-        $query->bindParam(":cedula", $cliente["cedula"]);
-        $query->bindParam(":direccion", $cliente["direccion"]);
-        $query->bindParam(":telefono", $cliente["telefono"]);
-        $query->bindParam(":correo", $cliente["correo"]);
-        $query->bindParam(":id", $cliente["cod_cliente"]);
+        $query = $conect->prepare("UPDATE investigadores SET nombre = :nombre, codigo = :codigo, telefono = :telefono, email = :email, id_categoria = :id_categoria, id_instituto = :id_instituto WHERE id_investigador = :id;");
+        
+        $query->bindParam(":id", $investigador["id_investigador"]);
+        $query->bindParam(":nombre", $investigador["nombre"]);
+        $query->bindParam(":codigo", $investigador["codigo"]);
+        $query->bindParam(":telefono", $investigador["telefono"]);
+        $query->bindParam(":email", $investigador["email"]);
+        $query->bindParam(":id_categoria", $investigador["id_categoria"]);
+        $query->bindParam(":id_instituto", $investigador["id_instituto"]);
 
         $query->execute();
     }
@@ -46,7 +46,7 @@ class Controller_investigador extends Conexion{
     function delete($id){
         $conect = $this->getConnect();
 
-        $query = $conect->prepare("DELETE FROM clientes WHERE id_cliente = :id");
+        $query = $conect->prepare("DELETE FROM investigadores WHERE id_investigador = :id");
         $query->bindParam(":id", $id);
         $query->execute();
     }
@@ -54,24 +54,24 @@ class Controller_investigador extends Conexion{
     function loadCliente($id){
         $conect = $this->getConnect();
 
-        $query = $conect->prepare("SELECT * FROM clientes WHERE id_cliente = :id");
+        $query = $conect->prepare("SELECT * FROM investigadores WHERE id_investigador = :id");
         $query->bindParam(":id", $id);
 
         $query->execute();
-        $cliente = $query->fetch(PDO::FETCH_LAZY);
+        $investigador = $query->fetch(PDO::FETCH_LAZY);
 
-        return $cliente;
+        return $investigador;
     }
 
-    function loadClienteCedula($cedula){
+    function loadInvestigador($cedula){
         $conect = $this->getConnect();
 
-        $query = $conect->prepare("SELECT * FROM clientes WHERE cedula = :cedula");
+        $query = $conect->prepare("SELECT * FROM investigadores WHERE id_investigador = :cedula");
         $query->bindParam(":cedula", $cedula);
 
         $query->execute();
-        $cliente = $query->fetch(PDO::FETCH_LAZY);
+        $investigador = $query->fetch(PDO::FETCH_LAZY);
 
-        return $cliente;
+        return $investigador;
     }
 }

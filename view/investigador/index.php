@@ -18,7 +18,7 @@
 
 
 <div class="container_table">
-    <h2 class="title_table">LISTA DE INVESTIGADORES</h2>
+    <h2 class="title_table">LISTADO DE INVESTIGADOR</h2>
     <div class="box"><a class="btn-nv" href="./create.php">AGREGAR NUEVO INVESTIGADOR</a></div>
     
     <table class="contenedor-tabla">

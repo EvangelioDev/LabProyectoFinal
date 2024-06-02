@@ -1,25 +1,25 @@
 <?php include_once ("../../template/header.php") ?>
-<?php include_once ("../../controller/Controller_investigador.php") ?>
-<?php include_once ("../../models/Investigador.php") ?>
+<?php include_once ("../../controller/Controller_instituto.php") ?>
+<?php include_once ("../../models/Instituto.php") ?>
 
 <?php
-    $control = new Controller_investigador();
+    $control = new Controller_instituto();
 
-    if(isset($_GET["cod_inv"]))
+    if(isset($_GET["cod_inst"]))
     {
-        $id = $_GET["cod_inv"];
+        $id = $_GET["cod_inst"];
 
         $control->delete($id);
     }
     
-    $all_inv = $control->loadData();
-    $cout_inv = 1;
+    $all_inst = $control->loadData();
+    $count_inst = 1;
 ?>
 
 
 <div class="container_table">
-    <h2 class="title_table">LISTA DE INSTITUCION</h2>
-    <div class="box"><a class="btn-nv" href="./create.php">AGREGAR NUEVA INSTITUCION</a></div>
+    <h2 class="title_table">LISTA DE INSTITUTO</h2>
+    <div class="box"><a class="btn-nv" href="./create.php">AGREGAR NUEVO INSTITUTO</a></div>
     
     <table class="contenedor-tabla">
         <thead>
@@ -35,9 +35,9 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach($all_inv as $inv){?>
+        <?php foreach($all_inst as $inv){?>
             <?php $datainv = new Investigador(); $datainv->parseArray($inv)?>
-            <tr class = "<?= ($cout_inv % 2 == 0) ? 'fila-activa':''?>">
+            <tr class = "<?= ($count_inst % 2 == 0) ? 'fila-activa':''?>">
                 <td><?= $datainv->id ?></td>
                 <td><?= $datainv->nombre ?></td>
                 <td><?= $datainv->codigo ?></td>
@@ -51,7 +51,7 @@
                 </td>
             </tr>
 
-        <?php $cout_inv++; } ?>
+        <?php $count_inst++; } ?>
         </tbody>
     </table>
 </div>

@@ -1,12 +1,24 @@
 <?php include_once ("../../template/header.php") ?>
 <?php include_once("../../controller/Controller_categoria.php") ?>
 <?php include_once("../../models/Categoria.php") ?>
+<?php include_once("../../models/Instituto.php") ?>
+<?php include_once("../../controller/Controller_instituto.php") ?>
+<?php include_once("../../controller/Controller_investigador.php") ?>
 
 <?php 
 
     $control = new Controller_categoria();
+    $control_inst = new Controller_instituto();
+    $control_inv = new Controller_investigador();
 
+    $all_instituto = $control_inst->loadData();
     $all_categoria = $control->loadData();
+
+    if(isset($_GET["codigo"])){
+        $investigador_ob = $_GET;
+
+        $control_inv->insert($investigador_ob);
+    }
 
 ?>
 
@@ -37,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="categoria">Categorias: </label>
-                <select name="categoria">
+                <select name="id_categoria">
                     <?php
                         foreach($all_categoria as $categoria){
                             $cate = new Categoria();
@@ -51,11 +63,17 @@
                 </select>
 
                 <label for="instituto">Instituto: </label>
-                <select name="instituto">
-                    <option value="item1">Item I</option>
-                    <option value="item2">Item II</option>
-                    <option value="item3">Item III</option>
-                    <option value="item4">Item IV</option>
+                <select name="id_instituto">
+                    <?php
+                        foreach($all_instituto as $instituto){
+                            $instituto_ob = new Instituto();
+                          
+                            $instituto_ob->parseArray($instituto);
+                            
+                            $item = "<option value = ".$instituto_ob->id." > ".$instituto_ob->nombre."</option>";
+                            print($item);
+                        }
+                    ?>
                 </select>
             </div>
             
