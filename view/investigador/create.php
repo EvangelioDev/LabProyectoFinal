@@ -79,7 +79,7 @@
             
             <div class="box-btn">
                 <button type="submit">Registrar</button>
-                <a href="./index.php" class="btn-3">Cancelar</a>
+                <a href="./index.php" class="btn-3">Volver</a>
             </div>
         </form>
     </div>

@@ -1,39 +1,51 @@
 <?php include_once ("../../../template/header.php") ?>
-<?php include_once("../../../controller/Controller_categoria.php") ?>
-<?php include_once("../../../models/Categoria.php") ?>
+<?php include_once("../../../controller/Controller_instituto.php") ?>
+<?php include_once("../../../models/Instituto.php") ?>
 
 <?php 
 
-    $control = new Controller_categoria();
+    $control = new Controller_instituto();
 
     if(isset($_GET["cod"]))
     {
-        $categoria = new Categoria();
+        $instituto = new Instituto();
         $id = $_GET["cod"];
-        $categoria->parseArray($control->loadCategoria($id));
+        $instituto->parseArray($control->loadInstituto($id));
     }
 
-    if(isset($_POST["id_categoria"])){
-        $categoria_list = $_POST;
-        $control->update($categoria_list);
+    if(isset($_POST["id_instituto"])){
+        $instituto_new = $_POST;
+        $control->update($instituto_new);
     }
 ?>
 
 
 <div class="box-form">
     <div class="form-container">
-        <form action="" method="post">
-            <input type="hidden" name="id_categoria" value="<?= $categoria->id ?>">
-            <h2>REGISTRAR NUEVA CATEGORIA</h2>
-            
-            <label for="nombre">Categoria:</label>
-            <input type="text" id="nombre" name="nombre" required value="<?=$categoria->nombre?> ">
-            <div class="box-btn">
-                <button type="submit">Actualizar</button>
-                <a href="./index.php" class="btn-3">Volver</a>
-            </div>
-            
-        </form>
+    <form action="" method="get">
+                <h2>ACTUALIZAR INSTITUTO</h2>
+                <input type="hidden" name="id_instituto" value="<?= $instituto->$id ?>">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required value="<?= $instituto->nombre ?>">
+
+                <label for="codigo">Codigo:</label>
+                <input type="text" id="codigo" name="codigo" required value="<?= $instituto->codigo ?>">
+                <div class="form-group">
+                    <select name="id_facultad">
+                      
+                        <?php
+                            $item = "<option value = ".$instituto->id." > ".$instituto->nombre."</option>";
+                            print($item);
+                        ?>
+                   
+                    </select>
+                </div>
+        
+                <div class="box-btn">
+                    <button type="submit">Actualizar</button>
+                    <a href="./index.php" class="btn-3">Volver</a>
+                </div>
+            </form>
     </div>
 </div>
 

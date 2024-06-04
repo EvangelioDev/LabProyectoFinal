@@ -27,7 +27,7 @@ $all_facultad = $control_facultad->loadData();
                 <label for="codigo">Codigo:</label>
                 <input type="text" id="codigo" name="codigo" required>
                 <div class="form-group">
-                    <select name="facultad">
+                    <select name="id_facultad">
                         <?php
                             foreach($all_facultad as $facultad){
                                 $facultad_ob = new Facultad();
